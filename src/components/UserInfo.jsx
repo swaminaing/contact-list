@@ -1,17 +1,25 @@
 import React from "react";
 
-function UserInfo({ index, username, imgUrl, email }) {
+function UserInfo({ username, age, imgUrl, email, country, onDelete }) {
   return (
-    <div
-      key={index}
-      className="bg-white shadow-md rounded-lg p-4 my-3 flex flex-col sm:flex-row items-center"
-    >
+    <div className="bg-blue-100 shadow-md rounded-lg p-4 my-3 flex flex-col sm:flex-row items-center">
       <div className="mr-4 mb-4 sm:mb-0">
         <img className="rounded-full w-24 h-24" src={imgUrl} alt="" />
       </div>
       <div className="text-center sm:text-left">
-        <h3 className="text-xl font-semibold">{username}</h3>
+        <span>
+          <span className="text-xl font-semibold">{username}, </span>
+          <span className="text-sm font-semibold">{age}</span>
+        </span>
+        <p className="text-blue-900 font-semibold">{country}</p>
         <p className="text-gray-700">{email}</p>
+
+        <button
+          onClick={() => onDelete(email)}
+          className="bg-red-500 hover:bg-red-700 text-white font-bold px-2 py-1 mt-3 rounded"
+        >
+          Delete
+        </button>
       </div>
     </div>
   );

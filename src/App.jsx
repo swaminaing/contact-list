@@ -18,12 +18,16 @@ function App() {
     getUser();
   }, []);
 
+  function handleDeleteUser(email) {
+    setUsers((prevUsers) => prevUsers.filter((user) => user.email !== email));
+  }
+
   return (
     <main className={mainStyles}>
       <h1 className="text-3xl text-center font-bold">My Contact List</h1>
 
       <div className="container mx-auto p-4 max-w-screen-sm">
-        <UserList users={users} />
+        <UserList users={users} onDelete={handleDeleteUser} />
       </div>
     </main>
   );
