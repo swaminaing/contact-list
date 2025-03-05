@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getUsers } from "./utils/http";
 import UserList from "./components/UserList";
+import ViewAllUsers from "./components/ViewAllUsers";
 
 const mainStyles =
   "bg-gradient-to-r from-white to-gray-200 text-blue-900 min-h-screen p-4";
@@ -28,6 +29,8 @@ function App() {
 
       <div className="container mx-auto p-4 max-w-screen-sm">
         <UserList users={users} onDelete={handleDeleteUser} />
+
+        <ViewAllUsers />
       </div>
     </main>
   );
